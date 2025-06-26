@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  vault-static-secret:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-06-26T16:51:10.536750566+07:00"
+    description: A Helm chart to sync secret from Vault
+    digest: f583af12393e35eabe05f286d08b377d86a92dfeda7259d440cd19348501b617
+    name: vault-static-secret
+    urls:
+    - vault-static-secret-0.1.2.tgz
+    version: 0.1.2
+generated: "2025-06-26T16:51:10.536047317+07:00"
