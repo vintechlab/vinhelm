@@ -22,9 +22,9 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Install Helm
-        uses: helm/helm-action@v3
+        uses: azure/setup-helm@v3
         with:
-          args: install
+          version: v3.14.0
 
       - name: Release Charts
         uses: helm/chart-releaser-action@v1.7.0
