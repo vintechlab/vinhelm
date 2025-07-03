@@ -45,7 +45,7 @@ jobs:
       - name: Push charts
         run: |
           shopt -s nullglob
-          for pkg in .cr-release-packages/*.tgz; do
+          for pkg in charts/*.tgz; do
             if [ -z "${pkg}" ]; then
               break
             fi
