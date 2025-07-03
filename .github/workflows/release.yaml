@@ -40,3 +40,13 @@ jobs:
           chart_dir: charts/
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push charts
+        run: |
+          shopt -s nullglob
+          for pkg in charts/*.tgz; do
+            if [ -z "${pkg}" ]; then
+              break
+            fi
+            helm push "${pkg}" oci://ghcr.io/${{ github.repository }}
+          done
