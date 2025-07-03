@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2
+
+- Add annotations.
+
 ## 0.1.1
 
 - Make the field `mount` of VaultAuth configurable.
