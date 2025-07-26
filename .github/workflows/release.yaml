@@ -25,9 +25,9 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Fetch current Chart Index
-        run: |
-          git checkout origin/gh-pages index.yaml
+      # - name: Fetch current Chart Index
+      #   run: |
+      #     git checkout origin/gh-pages index.yaml
 
       - name: Install Helm
         uses: azure/setup-helm@v3
@@ -42,19 +42,19 @@ jobs:
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to Github Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Login to Github Container Registry
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push charts
-        run: |
-          shopt -s nullglob
-          for pkg in .cr-release-packages/*.tgz; do
-            if [ -z "${pkg:-}" ]; then
-              break
-            fi
-            helm push "${pkg}" oci://ghcr.io/${{ github.repository }}
-          done
+      # - name: Push charts
+      #   run: |
+      #     shopt -s nullglob
+      #     for pkg in .cr-release-packages/*.tgz; do
+      #       if [ -z "${pkg:-}" ]; then
+      #         break
+      #       fi
+      #       helm push "${pkg}" oci://ghcr.io/${{ github.repository }}
+      #     done
