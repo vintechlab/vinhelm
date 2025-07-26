@@ -25,9 +25,9 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      # - name: Fetch current Chart Index
-      #   run: |
-      #     git checkout origin/gh-pages index.yaml
+      - name: Fetch current Chart Index
+        run: |
+          git checkout origin/gh-pages index.yaml
 
       - name: Install Helm
         uses: azure/setup-helm@v3
